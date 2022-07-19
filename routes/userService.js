@@ -1,46 +1,46 @@
-const { Member } = require('../models');
+const { USER_MASTER } = require('../models/index');
 
 module.exports = {
 
-    createMember: async ( member ) => {
+    createUser: async ( user ) => {
         try {
-            return await Member.create(member);
+            return await USER_MASTER.create(user);
         } catch (err) {
             console.error(err)
             throw err;
         }
     },
 
-    getMembers: async () => {
+    getUsers: async () => {
       try {
-          return await Member.findAll();
+          return await USER_MASTER.findAll();
       }  catch (err) {
           console.error(err);
           throw err;
       }
     },
 
-    getMember: async ( id ) => {
+    getUser: async ( id ) => {
         try {
-            return await Member.findOne({where: { id }})
+            return await USER_MASTER.findOne({where: { id }})
         } catch (err) {
             console.error(err);
             throw err;
         }
     },
 
-    modifyMember: async ( id, member ) => {
+    modifyUser: async ( id, user ) => {
         try {
-            return await Member.update(member, { where: { id }});
+            return await USER_MASTER.update(user, { where: { id }});
         } catch (err) {
             console.error(err);
             throw err;
         }
     },
 
-    deleteMember: async ( id ) => {
+    deleteUser: async ( id ) => {
         try {
-            return await Member.destroy({ where: { id }});
+            return await USER_MASTER.destroy({ where: { id }});
         } catch (err) {
             console.error(err);
             throw err;

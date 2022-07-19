@@ -6,9 +6,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const memberRouter = require('./routes/member');
-
-const db = require('./models');
+const userRouter = require('./routes/user');
 
 const app = express();
 
@@ -19,8 +17,6 @@ const swaggerSpec = YAML.load(path.join(__dirname, './swagger/out/swagger.yaml')
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 const baseError = require('./exception/baseError');
-
-db.sequelize.sync();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/members', memberRouter);
+app.use('/api/users', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(_req, _res, next) {

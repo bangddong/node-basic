@@ -9,7 +9,8 @@
 migrations/*
 config/config.js
 seeders/*
-
+models/*
+generateHdccosDB.js
 
 # User-specific stuff
 .idea/**/workspace.xml
