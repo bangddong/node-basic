@@ -1,0 +1,106 @@
+/api/members:
+  get:
+    tags:
+      - Member
+    summary: 멤버 목록을 조회한다.
+    response:
+      '200':
+        description: User List
+        content:
+          application/json:
+            schema:
+              type: array
+              Members:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  team:
+                    type: string
+                  position:
+                    type: string
+                  emailAddress:
+                    type: string
+                  phoneNumber:
+                    type: string
+  post:
+    tags:
+      - Member
+    summary: 신규 멤버를 등록한다.
+    parameters:
+      - name: name
+        description: 사용자 이름
+        schema:
+          type: string
+      - name: team
+        description: 사용자 소속
+        schema:
+          type: string
+      - name: position
+        description: 직책
+        schema:
+          type: string
+      - name: emailAddress
+        description: 이메일 주소
+        schema:
+          type: string
+      - name: phoneNumber
+        description: 휴대폰 번호
+        schema:
+          type: string
+
+/api/members/{id}:
+  get:
+    tags:
+      - Member
+    summary: 특정 멤버를 조회한다.
+    parameters:
+      - name: userId
+        description: 사용자 ID
+        schema:
+          type: integer
+    response:
+      '200':
+        description: User
+        content:
+          application/json:
+            schema:
+              type: object
+              Members:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  team:
+                    type: string
+                  position:
+                    type: string
+                  emailAddress:
+                    type: string
+                  phoneNumber:
+                    type: string
+  put:
+    tags:
+      - Member
+    summary: 특정 멤버의 정보를 수정한다.
+    parameters:
+      - name: userId
+        description: 사용자 ID
+        schema:
+          type: integer
+    response:
+      '200':
+        description: OK
+  delete:
+    tags:
+      - Member
+    summary: 특정 멤버를 삭제한다.
+    parameters:
+      - name: userId
+        description: 사용자 ID
+        schema:
+          type: integer

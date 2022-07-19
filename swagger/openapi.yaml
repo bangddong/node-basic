@@ -1,0 +1,13 @@
+openapi: '3.0.0'
+info:
+  version: 1.0.0
+  title: Test API Spec
+  description: 테스트중인 express api 문서입니다.
+  license:
+    name: MIT
+tags:
+  - name: Member
+paths:
+  $ref: './paths/member.yaml'
+servers:
+  - url: http://localhost:3000/

@@ -1,0 +1,20 @@
+### 멤버 목록 조회
+GET http://localhost:3000/api/members
+
+### 특정 멤버 조회
+GET http://localhost:3000/api/members/1
+
+### 멤버 등록
+POST http://localhost:3000/api/members
+Content-Type: application/json
+
+{
+  "name": "test2",
+  "team": "evolve2",
+  "position": "Server Developer",
+  "emailAddress": "test1@evolvesoft.co.kr",
+  "phoneNumber": "010-1234-5678",
+  "admissionDate": "2018-12-09T15:00:00.000Z",
+  "birthday": "1994-11-07T15:00:00.000Z",
+  "profileImage": "profile1.png"
+}
